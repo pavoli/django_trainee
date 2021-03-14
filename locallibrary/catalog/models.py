@@ -61,7 +61,7 @@ class BookInstance(models.Model):
         """
         String for representing the Model object
         """
-        return '{0} ({1})'.format(self.id,self.book.title)
+        return '{0} {1} {2} ({3})'.format(self.book.title, self.status, self.due_back, self.id)
 
 
 class Author(models.Model):
