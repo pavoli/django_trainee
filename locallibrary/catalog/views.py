@@ -36,6 +36,7 @@ def index(request):
 
 class BookListView(generic.ListView):
     model = Book
+    paginate_by = 5
 
     context_object_name = 'book_list'
     queryset = Book.objects.all()
