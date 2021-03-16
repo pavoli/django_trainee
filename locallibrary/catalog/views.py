@@ -49,3 +49,20 @@ class BookDetailView(generic.DetailView):
         book = get_object_or_404(Book, pk=primary_key)
         
         return render(request, 'catalog/book_detail.html', context={'book': book})
+
+
+class AuthorListView(generic.ListView):
+    model = Author
+    paginate_by = 5
+
+    context_object_name = 'author_list'
+    queryset = Author.objects.all()
+
+
+class AuthorDetailView(generic.DetailView):
+    model = Author
+
+    def author_detail_view(request, primary_key):
+        author = get_object_or_404(Author, pk=primary_key)
+        
+        return render(request, 'catalog/author_detail.html', context={'author': author})
